@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect,useState } from 'react'
+import './App.css'
 
 function App() {
   const [datas,setData] = useState()
@@ -33,30 +34,18 @@ function App() {
      { datas ? <>
       <div className="container p-5 m-5">
   {datas && (
-    <div className="card shadow-sm">
-      <div className="row g-0 align-items-center me-5">
-        <div className="col-4 me-5">
-          <img
-            src={datas.picture.large}
-            className="img-fluid rounded-start m-3 p-3"
-            alt="User"
-            style={{ objectFit: "cover", width: "100%", maxHeight: "300px" }}
-          />
-        </div>
-        <div className="col-4">
-          <div className="card-body mt-3">
-            <h5 className="card-title mb-3">
-              {datas.name.first} {datas.name.last}
-            </h5>
-            <p className="card-text">
-              <strong>Gender:</strong> {datas.gender}
-            </p>
-            <p className="card-text">
-              <strong>Cell:</strong> {datas.cell}
-            </p>
-          </div>
-        </div>
+    <div id="card" className="card shadow-sm">
+    <div className='row'>
+    <div className='col-5 my-4 ms-4'>
+        <img src={datas.picture.large}/>
       </div>
+      <div className='col-5 my-4 me-4'>
+        <h4 className='card-title'>{datas.name.first} {datas.name.last}</h4>
+        <p className='my-3'>{datas.gender}</p>
+        <p>{datas.cell}</p>
+      </div>
+    </div>
+      
     </div>
   )}
 </div>
